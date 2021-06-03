@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block title %}Pets{% endblock %}
+{% block body %}
+<div class="header">
+    <h1 class="text-center mt-3">Pets</h1>
+</div>
+{% if pets|length %}
+    <div class="container mt-5 d-flex justify-content-center">
+    {% for pet in pets %}
+    {% if pet.available %}
+        <div class="card p-3 ml-3" style="width:350px">
+            <div class="d-flex align-items-center">
+                {% if pet.photo_url|length %}<div class="image"> <img src="{{ pet.photo_url }}" class="rounded" height="150"></div>{% endif %}
+                <div class="ml-3 mt-5 w-100">
+                    <h4 class="mb-0 mt-0 text-success text-center">{{pet.name}} <br>{% if pet.available %}<span class="font-weight-bold text-secondary">is available</span>{% endif %}</h4> 
+                </div>
+            </div>
+            <a href="/{{pet.id}}" class="btn btn-primary mt-3" style="width:80px">Edit</a>
+        </div>
+    {% endif %}
+    {% endfor %}
+    </div>
+    <div class="container mt-5 d-flex justify-content-center">
+        {% for pet in pets %}
+        {% if not pet.available %}
+            <div class="card p-3 ml-3" style="width:350px">
+                <div class="d-flex align-items-center">
+                    {% if pet.photo_url|length %}<div class="image"> <img src="{{ pet.photo_url }}" class="rounded" height="150"></div>{% endif %}
+                    <div class="ml-3 mt-5 w-100">
+                        <h4 class="mb-0 mt-0 text-success text-center">{{pet.name}} <br>{% if not pet.available %}<span class="font-weight-bold text-secondary">not available</span>{% endif %}</h4> 
+                    </div>
+                </div>
+                <a href="/{{pet.id}}" class="btn btn-primary mt-3" style="width:80px">Edit</a>
+            </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+    <div class="container mt-5 d-flex justify-content-center">
+        <a href="/add" class="btn btn-success">Add pet</a>
+    </div>
+{% else %}
+    <h2>No pets availabel</h2>
+{% endif %}
+{% endblock %}
