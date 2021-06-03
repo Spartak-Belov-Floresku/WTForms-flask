@@ -2,6 +2,8 @@
 
 A web application for a Pet Adoption Agency.
 
+To run aplication you have to deploy app on the server
+
 <img src="https://raw.githubusercontent.com/Spartak-Belov-Floresku/img-jg/main/adoption-agency-1.png">
 
 <img src="https://raw.githubusercontent.com/Spartak-Belov-Floresku/img-jg/main/adoption-agency-2.png">
