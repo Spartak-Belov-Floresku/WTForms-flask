@@ -1,6 +1,6 @@
 # project-adoption-agency
 
-A web application uses WTForm pattern.
+A web application uses Flask WTForms pattern.
 
 To run aplication you have to deploy app on the server
 
